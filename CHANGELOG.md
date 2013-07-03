@@ -18,10 +18,15 @@
 *   A `has_many` association does not trigger a remote call if parent is a new
     record. ([#97], [Sasha Shamne])
 *   `find_every` returns `[]`, not `nil`, when no records are found. ([#123])
+*   Fix `options[:class_name]` to keep the given class name, and not transform it to singular.
+    Example:
 
-## Active Resource 4.0.0 ##
+    ```ruby
+    has_one :profile_data, class_name: 'profile_data' #will correctly use ProfileData, and not ProfileDatum
+    ```
+    Fixed and pull request available: https://github.com/rails/activeresource/pull/80
 
-*   No changes
+    *Lucian Cancescu*
 
 
 ## Active Resource 4.0.0.beta1 (March 3, 2013) ##
